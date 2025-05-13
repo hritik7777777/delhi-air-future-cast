@@ -3,9 +3,9 @@ import React from 'react';
 import AQIDisplay from '@/components/AQIDisplay';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Thermometer, CloudRain, Search, Gauge } from 'lucide-react'; // Added Gauge
+import { Thermometer, CloudRain, Search, Gauge } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import HistoricalAQIChart from '@/components/HistoricalAQIChart'; // Import the new chart
+import HistoricalAQIChart from '@/components/HistoricalAQIChart';
 
 const Index: React.FC = () => {
   const mockPredictedAQIDelhi = 255; // Example: Poor
@@ -13,8 +13,8 @@ const Index: React.FC = () => {
   return (
     <div className="space-y-12">
       <section className="text-center py-8 bg-gradient-to-r from-sky-400 to-blue-500 rounded-lg shadow-xl text-white">
-        <h1 className="text-5xl font-extrabold mb-4">Delhi NCR Air Quality Hub</h1>
-        <p className="text-xl mb-6 max-w-2xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Delhi NCR Air Quality Hub</h1>
+        <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
           Track, predict, and understand air quality in the National Capital Region.
         </p>
         <Link to="/calculator">
@@ -26,7 +26,7 @@ const Index: React.FC = () => {
 
       <section className="grid md:grid-cols-2 gap-8 items-start">
         <div className="flex justify-center">
-          <AQIDisplay aqi={mockPredictedAQIDelhi} location="Delhi NCR (Predicted)" />
+          <AQIDisplay aqi={mockPredictedAQIDelhi} location="Delhi NCR (Predicted Sample)" />
         </div>
         <div className="space-y-4 text-gray-700 bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-3xl font-semibold text-primary mb-3">Understanding AQI</h2>
@@ -36,7 +36,7 @@ const Index: React.FC = () => {
             percentage of the population is likely to experience adverse health effects.
           </p>
           <p>
-            Our platform provides predicted AQI values, historical trends, and a calculator to help you make informed
+            Our platform provides predicted AQI values (currently using sample data), historical trends, and a calculator to help you make informed
             decisions for your health and daily activities.
           </p>
         </div>
@@ -60,7 +60,8 @@ const Index: React.FC = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground text-center">
-                View predicted AQI levels for Delhi NCR to plan your day. (Currently using mock data)
+                View predicted AQI levels for Delhi NCR.
+                <span className="block text-xs mt-1 italic">(Currently uses sample data. Future updates aim to integrate live API data.)</span>
               </p>
             </CardContent>
           </Card>
