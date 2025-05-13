@@ -3,11 +3,11 @@ import React from 'react';
 import AQIDisplay from '@/components/AQIDisplay';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Thermometer, CloudRain, Search } from 'lucide-react';
+import { Thermometer, CloudRain, Search, Gauge } from 'lucide-react'; // Added Gauge
 import { Link } from 'react-router-dom';
+import HistoricalAQIChart from '@/components/HistoricalAQIChart'; // Import the new chart
 
 const Index: React.FC = () => {
-  // Mock predicted AQI for Delhi NCR
   const mockPredictedAQIDelhi = 255; // Example: Poor
 
   return (
@@ -24,11 +24,11 @@ const Index: React.FC = () => {
         </Link>
       </section>
 
-      <section className="flex flex-col md:flex-row justify-center items-center gap-8">
-        <div className="md:w-1/2 flex justify-center">
+      <section className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="flex justify-center">
           <AQIDisplay aqi={mockPredictedAQIDelhi} location="Delhi NCR (Predicted)" />
         </div>
-        <div className="md:w-1/2 space-y-4 text-gray-700">
+        <div className="space-y-4 text-gray-700 bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-3xl font-semibold text-primary mb-3">Understanding AQI</h2>
           <p>
             The Air Quality Index (AQI) is a numerical scale used to communicate how polluted the air
@@ -36,44 +36,60 @@ const Index: React.FC = () => {
             percentage of the population is likely to experience adverse health effects.
           </p>
           <p>
-            Our platform provides predicted AQI values and a calculator to help you make informed
+            Our platform provides predicted AQI values, historical trends, and a calculator to help you make informed
             decisions for your health and daily activities.
           </p>
         </div>
       </section>
 
       <section>
-        <h2 className="text-3xl font-semibold text-primary text-center mb-6">Key Features</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium">AQI Prediction</CardTitle>
-              <Thermometer className="h-6 w-6 text-red-500" />
+        <HistoricalAQIChart />
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-semibold text-primary text-center mb-8">Key Features</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+            <CardHeader className="flex-grow">
+              <div className="flex items-center justify-center mb-3">
+                <div className="p-3 bg-red-100 rounded-full">
+                  <Thermometer className="h-8 w-8 text-red-500" />
+                </div>
+              </div>
+              <CardTitle className="text-xl font-medium text-center">AQI Prediction</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground text-center">
                 View predicted AQI levels for Delhi NCR to plan your day. (Currently using mock data)
               </p>
             </CardContent>
           </Card>
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium">AQI Calculator</CardTitle>
-              <Search className="h-6 w-6 text-green-500" />
+          <Card className="shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+            <CardHeader className="flex-grow">
+              <div className="flex items-center justify-center mb-3">
+                <div className="p-3 bg-green-100 rounded-full">
+                  <Search className="h-8 w-8 text-green-500" />
+                </div>
+              </div>
+              <CardTitle className="text-xl font-medium text-center">AQI Calculator</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground text-center">
                 Calculate AQI based on specific pollutant concentrations (e.g., PM2.5).
               </p>
             </CardContent>
           </Card>
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium">Health Advisories</CardTitle>
-              <CloudRain className="h-6 w-6 text-blue-500" />
+          <Card className="shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+            <CardHeader className="flex-grow">
+               <div className="flex items-center justify-center mb-3">
+                <div className="p-3 bg-blue-100 rounded-full">
+                  <CloudRain className="h-8 w-8 text-blue-500" />
+                </div>
+              </div>
+              <CardTitle className="text-xl font-medium text-center">Health Advisories</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground text-center">
                 Understand the health implications associated with different AQI levels.
               </p>
             </CardContent>
@@ -81,7 +97,7 @@ const Index: React.FC = () => {
         </div>
       </section>
 
-      <section className="text-center py-6 bg-gray-100 rounded-lg">
+      <section className="text-center py-6 bg-gray-100 rounded-lg shadow">
         <h3 className="text-2xl font-semibold text-primary mb-3">Stay Informed, Stay Healthy</h3>
         <p className="text-gray-600 max-w-xl mx-auto">
           Regularly checking the AQI can help you take precautionary measures, especially if you belong to
@@ -93,4 +109,3 @@ const Index: React.FC = () => {
 };
 
 export default Index;
-

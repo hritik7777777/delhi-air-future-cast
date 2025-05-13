@@ -63,13 +63,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
         aqi: {
-          good: '#28a745', // Green
-          satisfactory: '#92c452', // Light Green
-          moderate: '#f9d71c', // Yellow
-          poor: '#ff9933', // Orange
-          veryPoor: '#dc3545', // Red
-          severe: '#800000', // Maroon
-          unknown: '#cccccc' // Gray for unknown/default
+          good: 'hsl(var(--theme-aqi-good))',
+          satisfactory: 'hsl(var(--theme-aqi-satisfactory))',
+          moderate: 'hsl(var(--theme-aqi-moderate))',
+          poor: 'hsl(var(--theme-aqi-poor))',
+          veryPoor: 'hsl(var(--theme-aqi-verypoor))', // Note: veryPoor in config, verypoor in CSS var
+          severe: 'hsl(var(--theme-aqi-severe))',
+          unknown: 'hsl(var(--theme-aqi-unknown))'
         }
 			},
 			borderRadius: {
