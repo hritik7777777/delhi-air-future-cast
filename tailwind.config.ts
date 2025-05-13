@@ -61,7 +61,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        aqi: {
+          good: '#28a745', // Green
+          satisfactory: '#92c452', // Light Green
+          moderate: '#f9d71c', // Yellow
+          poor: '#ff9933', // Orange
+          veryPoor: '#dc3545', // Red
+          severe: '#800000', // Maroon
+          unknown: '#cccccc' // Gray for unknown/default
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
